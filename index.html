@@ -1,238 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BPSC Syllabus & Weightage for Students</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> My Lecture Dashboard </title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(45deg, #a1c4fd, #c2e9fb, #d4fc79);
+      background-size: 600% 400%;
+      color: #000;
+      padding: 40px;
+      margin: 0;
+      animation: flow 5s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
 
-        body {
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-        }
+    @keyframes flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(15px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      animation: slideUpContainer 1.2s ease-in-out;
+    }
 
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            animation: fadeIn 1s ease-in;
-        }
+    @keyframes slideUpContainer {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
 
-        /* Syllabus Box Styling */
-        .syllabus-box {
-            background-color: #ffffff;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: bounceIn 1s ease-in-out;
+    }
 
-        .syllabus-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
+    @keyframes bounceIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      60% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); }
+    }
 
-        .syllabus-header {
-            background-color: #3498db;
-            color: white;
-            padding: 15px;
-            cursor: pointer;
-            font-size: 1.2em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 30px;
+      padding: 20px 0;
+    }
 
-        .syllabus-header span {
-            font-size: 0.9em;
-        }
+    .box {
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      background-size: 400% 400%;
+      animation: waveFlow 6s ease-in-out infinite, floatUpDown 3s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      opacity: 1;
+      cursor: pointer;
+    }
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-        .syllabus-content {
-            padding: 20px;
-            display: none;
-            animation: slideDown 0.5s ease-in-out;
-        }
+    @keyframes floatUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
 
-        .syllabus-content.active {
-            display: block;
-        }
+    @keyframes flow {
+  0%   { background-position: 0% 50%; }
+  20%  { background-position: 50% 50%; }
+  40%  { background-position: 100% 50%; }
+  60%  { background-position: 50% 50%; }
+  80%  { background-position: 0% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-        /* Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
+ .box {
+  /* aapka existing gradient */
+  background: linear-gradient(45deg, #ff6b6b, #ffe066, #40c4ff, #7b1fa2);
+  background-size: 400% 400%;
+  animation: hueRotate 8s linear infinite;
+  /* baki styles */
+}
 
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
+@keyframes hueRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 
-        th {
-            background-color: #3498db;
-            color: white;
-        }
+.box:nth-child(5n+1),
+.box:nth-child(5n+1)::before {
+  background: linear-gradient(45deg, #000000, #ffe066, #40c4ff, #7b1fa2);
+  animation: hueRotate 8s linear infinite;
+  filter: brightness(1); /* default */
+}
 
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
+@keyframes hueRotate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+    .box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        -45deg,
+        rgba(112, 201, 239, 0.15),
+        rgba(109, 184, 121, 0.181),
+        rgb(0, 0, 0)
+      );
+      animation: waveLine 6s ease-in-out infinite;
+      transform: rotate(45deg);
+      z-index: 0;
+      filter: drop-shadow(0 0 6px rgb(225, 255, 0));
+    }
 
-        /* Tips Section */
-        .tips-section {
-            background-color: #e8f4f8;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
+    @keyframes waveLine {
+      0% { transform: rotate(45deg) translateX(120%) scale(0.85); opacity: 0.35; }
+      25% { transform: rotate(45deg) translateX(60%) scale(1); opacity: 0.65; }
+      50% { transform: rotate(45deg) translateX(-60%) scale(1.25); opacity: 1; }
+      75% { transform: rotate(25deg) translateX(30%) scale(1); opacity: 0.7; }
+      100% { transform: rotate(45deg) translateX(120%) scale(0.85); opacity: 0.35; }
+    }
 
-        .tips-section h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
+    .box h4, .box p {
+      position: relative;
+      z-index: 1;
+      color: #000000;
+      font-weight: bold;
+    }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+   /* Cycling gradients with 45deg for all 45 lecture boxes */
+.box:nth-child(1) { background: linear-gradient(45deg, rgb(255, 0, 0), #84e9f8, #000000, #bb1414); background-size: 400% 400%; animation-delay: s; }
+.box:nth-child(2) { background: linear-gradient(45deg, rgb(0, 0, 0), #1dd1a1, #00d2d3, #54a0ff); background-size: 400% 400%; animation-delay: 0.2s; }
+.box:nth-child(3) { background: linear-gradient(45deg, rgb(0, 0, 0), #4d56ff, #ff793f, #ffcc99); background-size: 400% 400%; animation-delay: 0.4s; }
+.box:nth-child(4) { background: linear-gradient(45deg, rgb(0, 0, 0), #40f752, #706fd3, #9980fa); background-size: 400% 400%; animation-delay: 0.6s; }
+.box:nth-child(5) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff9ff3, #feca57, #1dd1a1); background-size: 400% 400%; animation-delay: 0.8s; }
+.box:nth-child(6) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #00d2d3, #ff6b6b); background-size: 400% 400%; animation-delay: 1s; }
+.box:nth-child(7) { background: linear-gradient(45deg, rgb(0, 0, 0), #ffcc99, #ff4d4d, #9980fa); background-size: 400% 400%; animation-delay: 1.2s; }
+.box:nth-child(8) { background: linear-gradient(45deg, rgb(0, 0, 0), #706fd3, #ff9ff3, #ff793f); background-size: 400% 400%; animation-delay: 1.4s; }
+.box:nth-child(9) { background: linear-gradient(45deg, rgb(0, 0, 0), #feca57, #4834d4, #54a0ff); background-size: 400% 400%; animation-delay: 1.6s; }
+.box:nth-child(10) { background: linear-gradient(45deg, rgb(0, 0, 0), #00d2d3, #ff6b6b, #ffcc99); background-size: 400% 400%; animation-delay: 1.8s; }
+.box:nth-child(11) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff793f, #1dd1a1, #706fd3); background-size: 400% 400%; animation-delay: 2s; }
+.box:nth-child(12) { background: linear-gradient(45deg, rgb(0, 0, 0), #9980fa, #ff6b6b, #feca57); background-size: 400% 400%; animation-delay: 2.2s; }
+.box:nth-child(13) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #ffcc99, #ff4d4d); background-size: 400% 400%; animation-delay: 2.4s; }
+.box:nth-child(14) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff9ff3, #00d2d3, #4834d4); background-size: 400% 400%; animation-delay: 2.6s; }
+.box:nth-child(15) { background: linear-gradient(45deg, rgb(0, 0, 0), #feca57, #ff793f, #1dd1a1); background-size: 400% 400%; animation-delay: 2.8s; }
+.box:nth-child(16) { background: linear-gradient(45deg, rgb(0, 0, 0), #706fd3, #ff6b6b, #54a0ff); background-size: 400% 400%; animation-delay: 3s; }
+.box:nth-child(17) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff4d4d, #9980fa, #00d2d3); background-size: 400% 400%; animation-delay: 3.2s; }
+.box:nth-child(18) { background: linear-gradient(45deg, rgb(0, 0, 0), #ffcc99, #ff9ff3, #4834d4); background-size: 400% 400%; animation-delay: 3.4s; }
+.box:nth-child(19) { background: linear-gradient(45deg, rgb(225, 0, 0), #1dd1a1, #ff793f, #706fd3); background-size: 400% 400%; animation-delay: 3.6s; }
+.box:nth-child(20) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #feca57, #ff6b6b); background-size: 400% 400%; animation-delay: 3.8s; }
+.box:nth-child(21) { background: linear-gradient(45deg, rgb(0, 0, 0), #9980fa, #ff4d4d, #00d2d3); background-size: 400% 400%; animation-delay: 4s; }
+.box:nth-child(22) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff9ff3, #ffcc99, #ff793f); background-size: 400% 400%; animation-delay: 4.2s; }
+.box:nth-child(23) { background: linear-gradient(45deg, rgb(30, 194, 74), #4834d4, #1dd1a1, #54a0ff); background-size: 400% 400%; animation-delay: 4.4s; }
+.box:nth-child(24) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff6b6b, #706fd3, #ff4d4d); background-size: 400% 400%; animation-delay: 4.6s; }
+.box:nth-child(25) { background: linear-gradient(45deg, rgb(0, 0, 0), #00d2d3, #ff9ff3, #feca57); background-size: 400% 400%; animation-delay: 4.8s; }
+.box:nth-child(26) { background: linear-gradient(45deg, rgb(0, 0, 0), #ffcc99, #54a0ff, #9980fa); background-size: 400% 400%; animation-delay: 5s; }
+.box:nth-child(27) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff793f, #ff6b6b, #1dd1a1); background-size: 400% 400%; animation-delay: 5.2s; }
+.box:nth-child(28) { background: linear-gradient(45deg, rgb(0, 0, 0), #706fd3, #ff4d4d, #00d2d3); background-size: 400% 400%; animation-delay: 5.4s; }
+.box:nth-child(29) { background: linear-gradient(45deg, rgb(0, 0, 0), #feca57, #9980fa, #ff9ff3); background-size: 400% 400%; animation-delay: 5.6s; }
+.box:nth-child(30) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #ff793f, #ff6b6b); background-size: 400% 400%; animation-delay: 5.8s; }
+.box:nth-child(31) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff6b6b, #ff9f43, #feca57); background-size: 400% 400%; animation-delay: 6s; }
+.box:nth-child(32) { background: linear-gradient(45deg, rgb(0, 0, 0), #1dd1a1, #00d2d3, #54a0ff); background-size: 400% 400%; animation-delay: 6.2s; }
+.box:nth-child(33) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff4d4d, #ff793f, #ffcc99); background-size: 400% 400%; animation-delay: 6.4s; }
+.box:nth-child(34) { background: linear-gradient(45deg, rgb(0, 0, 0), #40f752, #706fd3, #9980fa); background-size: 400% 400%; animation-delay: 6.6s; }
+.box:nth-child(35) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff9ff3, #feca57, #1dd1a1); background-size: 400% 400%; animation-delay: 6.8s; }
+.box:nth-child(36) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #00d2d3, #ff6b6b); background-size: 400% 400%; animation-delay: 7s; }
+.box:nth-child(37) { background: linear-gradient(45deg, rgb(0, 0, 0), #ffcc99, #ff4d4d, #9980fa); background-size: 400% 400%; animation-delay: 7.2s; }
+.box:nth-child(38) { background: linear-gradient(45deg, rgb(0, 0, 0), #706fd3, #ff9ff3, #ff793f); background-size: 400% 400%; animation-delay: 7.4s; }
+.box:nth-child(39) { background: linear-gradient(45deg, rgb(0, 0, 0), #feca57, #4834d4, #54a0ff); background-size: 400% 400%; animation-delay: 7.6s; }
+.box:nth-child(40) { background: linear-gradient(45deg, rgb(0, 0, 0), #00d2d3, #ff6b6b, #ffcc99); background-size: 400% 400%; animation-delay: 7.8s; }
+.box:nth-child(41) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff793f, #1dd1a1, #706fd3); background-size: 400% 400%; animation-delay: 8s; }
+.box:nth-child(42) { background: linear-gradient(45deg, rgb(0, 0, 0), #9980fa, #ff6b6b, #feca57); background-size: 400% 400%; animation-delay: 8.2s; }
+.box:nth-child(43) { background: linear-gradient(45deg, rgb(0, 0, 0), #54a0ff, #ffcc99, #ff4d4d); background-size: 400% 400%; animation-delay: 8.4s; }
+.box:nth-child(44) { background: linear-gradient(45deg, rgb(0, 0, 0), #ff9ff3, #00d2d3, #4834d4); background-size: 400% 400%; animation-delay: 8.6s; }
+.box:nth-child(45) { background: linear-gradient(45deg, rgb(239, 31, 205), #feca57, #ff793f, #1dd1a1); background-size: 400% 400%; animation-delay: 8.8s; }
+    .box:hover {
+      transform: scale(1.15) translateY(-10px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.3);
+      z-index: 10;
+    }
+    
 
-        @keyframes slideDown {
-            from { height: 0; opacity: 0; }
-            to { height: auto; opacity: 1; }
-        }
+    .box h4 {
+      margin: 0;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
+    .box p {
+      font-size: 28px;
+      margin: 12px 0 0;
+    }
 
-            .syllabus-header {
-                font-size: 1em;
-            }
-
-            th, td {
-                font-size: 0.9em;
-                padding: 8px;
-            }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 20px;
+      }
+      .box p {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>BPSC Syllabus & Weightage Guide for Students</h1>
+  <div class="container">
+    <h2>🎓 My Lecture Dashboard  <br>Lucky <br/> </h2>
+   <div class="grid">
+  
 
-        <!-- Prelims Section -->
-        <div class="syllabus-box">
-            <div class="syllabus-header" onclick="toggleContent(this)">
-                BPSC Prelims Syllabus <span>Click to Expand/Collapse</span>
-            </div>
-            <div class="syllabus-content">
-                <h3>Prelims Exam Pattern</h3>
-                <p>Single paper (General Studies), 150 MCQs, 150 marks, 2 hours, 1/3 negative marking. Qualifying only.</p>
-                <h3>Syllabus Topics</h3>
-                <ul>
-                    <li><strong>General Science:</strong> Basic concepts in Physics, Chemistry, Biology, environment.</li>
-                    <li><strong>Current Affairs:</strong> National, international, Bihar-specific events (last 1-2 years).</li>
-                    <li><strong>History:</strong> Ancient, Medieval, Modern India & Bihar; freedom struggle.</li>
-                    <li><strong>Geography:</strong> Physical, social, economic aspects of India & Bihar.</li>
-                    <li><strong>Polity & Economy:</strong> Indian system, Panchayati Raj, Bihar economy changes.</li>
-                    <li><strong>National Movement:</strong> 1857 Revolt, Champaran, Quit India; Bihar’s role.</li>
-                    <li><strong>Mental Ability:</strong> Reasoning, arithmetic, data interpretation.</li>
-                </ul>
-               F                <h3>Weightage (Approx. Questions)</h3>
-                <table>
-                    <tr><th>Subject</th><th>Questions</th><th>Weightage</th></tr>
-                    <tr><td>Current Affairs</td><td>25-35</td><td>17-23%</td></tr>
-                    <tr><td>History (India & Bihar)</td><td>25-30</td><td>17-20%</td></tr>
-                    <tr><td>Geography (India & Bihar)</td><td>20-25</td><td>13-17%</td></tr>
-                    <tr><td>Polity & Governance</td><td>15-20</td><td>10-13%</td></tr>
-                    <tr><td>Economy (India & Bihar)</td><td>10-15</td><td>7-10%</td></tr>
-                    <tr><td>General Science</td><td>20-25</td><td>13-17%</td></tr>
-                    <tr><td>Mental Ability & Maths</td><td>10-15</td><td>7-10%</td></tr>
-                    <tr><td>Bihar-Specific GK</td><td>5-10</td><td>3-7%</td></tr>
-                </table>
-            </div>
-        </div>
+  
+  <div class="box" onclick="window.open('https://75rishi.github.io/Medieval-His-Lec-1-to-45/', '_blank')">
+    <h4>Medieval History</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/Modern-His-Lec-1-to-45/', '_blank')">
+    <h4>Modern History</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/Ancient-His-Lec-1-to-45/', '_blank')">
+    <h4>Ancient History</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/Economic-Lec-1-to-45/', '_blank')">
+    <h4>Economy</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/Indian-Geo-Lec-1-to-45/', '_blank')">
+    <h4>Indian Geography</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/World-Geo-Lec-1-to-45/', '_blank')">
+    <h4>World Geography</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/Polity-Lec-1-to-45/', '_blank')">
+    <h4>Polity</h4>
+    <p>All Lecture Quiz</p>
+</div>
+  
+<div class="box" onclick="window.open('https://75rishi.github.io/General-Science-Lec-1-to-45/', '_blank')">
+    <h4>General Science</h4>
+    <p>All Lecture Quiz</p>
+</div>
 
-        <!-- Mains Section -->
-        <div class="syllabus-box">
-            <div class="syllabus-header" onclick="toggleContent(this)">
-                BPSC Mains Syllabus <span>Click to Expand/Collapse</span>
-            </div>
-            <div class="syllabus-content">
-                <h3>Mains Exam Pattern</h3>
-                <p>5 papers, 1000 marks (900 for merit). General Hindi & Optional are qualifying. Descriptive (except Optional: MCQ).</p>
-                <h3>Papers & Syllabus</h3>
-                <ul>
-                    <li><strong>General Hindi (100 marks, Qualifying):</strong> Essay (30), Grammar (30), Syntax (25), Precis (15).</li>
-                    <li><strong>General Studies Paper 1 (300 marks):</strong> Modern History (India & Bihar), Indian Culture, Current Events, Statistical Analysis.</li>
-                    <li><strong>General Studies Paper 2 (300 marks):</strong> Indian Polity, Economy, Geography, Science & Tech.</li>
-                    <li><strong>Essay (300 marks):</strong> 3 essays (Moral/Philosophical, Social/Economic/Political, Bihar-specific).</li>
-                    <li><strong>Optional Subject (100 marks, Qualifying):</strong> MCQ, choose 1 from 34 subjects (e.g., History, Geography).</li>
-                </ul>
-                <h3>Weightage (Marks for Merit)</h3>
-                <table>
-                    <tr><th>Paper</th><th>Marks</th><th>Weightage</th></tr>
-                    <tr><td>General Studies Paper 1</td><td>300</td><td>33.3%</td></tr>
-                    <tr><td>General Studies Paper 2</td><td>300</td><td>33.3%</td></tr>
-                    <tr><td>Essay</td><td>300</td><td>33.3%</td></tr>
-                    <tr><td>General Hindi (Qualifying)</td><td>100</td><td>0%</td></tr>
-                    <tr><td>Optional (Qualifying)</td><td>100</td><td>0%</td></tr>
-                </table>
-            </div>
-        </div>
+  
+</div>
+</div>
 
-        <!-- Interview Section -->
-        <div class="syllabus-box">
-            <div class="syllabus-header" onclick="toggleContent(this)">
-                BPSC Interview <span>Click to Expand/Collapse</span>
-            </div>
-            <div class="syllabus-content">
-                <p><strong>Format:</strong> Personality test, 120 marks, 20-30 minutes.</p>
-                <p><strong>Focus:</strong> Current affairs, Bihar issues, personal background, ethics.</p>
-                <p><strong>Weightage:</strong> Added to Mains (total 1020 marks).</p>
-                <p><strong>Tip:</strong> Practice mock interviews for confidence.</p>
-            </div>
-        </div>
 
-        <!-- Study Tips Section -->
-        <div class="tips-section">
-            <h2>Study Tips </h2>
-            <ul>
-                <li>Focus on <strong>Bihar-specific topics</strong> (history, geography, economy).</li>
-                <li>Read newspapers daily for <strong>current affairs</strong> (The Hindu, Indian Express).</li>
-                <li>Practice <strong>previous years’ papers</strong> to understand question trends.</li>
-                <li>Write essays regularly to improve clarity and structure.</li>
-                <li>Use NCERT books for basics; refer to Bihar-specific books (e.g., Imtiyaz Ahmed).</li>
-                <li>Join a test series for Prelims and Mains practice.</li>
-                <li>Revise regularly and make concise notes.</li>
-            </ul>
-        </div>
-    </div>
-
-    <script>
-        function toggleContent(header) {
-            const content = header.nextElementSibling;
-            content.classList.toggle('active');
-        }
-    </script>
+</div>
+ </div>
+  </div>
 </body>
 </html>
+
