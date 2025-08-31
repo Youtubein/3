@@ -225,17 +225,19 @@
       margin: 12px 0 0;
     }
 
-    @media (max-width: 768px) {
-      .container {
-        padding: 20px;
-      }
-      .grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 20px;
-      }
-      .box p {
-        font-size: 24px;
-      }
+   @media (max-width: 768px) {
+  .container {
+    padding: 5px;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+    gap: px; /* 5px gap between boxes */
+  }
+  .box p {
+    font-size: 24px;
+  }
+}
+
     }
   </style>
 </head>
@@ -297,3 +299,4 @@
 </body>
 </html>
 
+  
